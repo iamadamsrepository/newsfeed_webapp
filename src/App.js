@@ -1,5 +1,6 @@
 import "./App.css";
 
+import { Analytics } from "@vercel/analytics/react"
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -128,6 +129,7 @@ function App() {
           <p>&copy; 2025 Digesticle</p>
         </footer>
       </div>
+      <Analytics/>
     </Router>
   );
 }
