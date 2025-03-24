@@ -45,6 +45,9 @@ function App() {
       <p>
         We’re in our early days — but our mission is clear: to help you cut through the noise, see the big picture, and stay informed with confidence.
       </p>
+      <p>
+        Dedicated to my sweet and lovely Sharon ❤️
+      </p>
     </div>
   );
 
