@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { apiHost, colors } from "./config";
+import { apiHost } from "./config";
 
 function StoryImage(props) {
   const image = props.image;
