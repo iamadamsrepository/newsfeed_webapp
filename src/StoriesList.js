@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { colors } from "./config";
-
 
 function StoryListItem(props) {
   const story = props.story;
@@ -12,7 +10,7 @@ function StoryListItem(props) {
         {story?.images?.length > 0 ? (
           <div className="flex-[1] w-full p-1">
             <img
-              className="rounded-[2vw]"
+              className="rounded-[2vw] max-h-[150px] md:max-h-[250px]"
               src={story.images[0].url}
               alt={story.title}
             />
@@ -24,14 +22,14 @@ function StoryListItem(props) {
             alt="logo"
           />
         )}
-        <div className="flex-[1] md:flex-[2] w-full ml-0 mt-0 md:ml-6 md:mt-6">
-          <div className="text-[9px] md:text-[10px] text-myblue">From {story.n_articles} Sources</div>
-          <div className="text-sm h-full place-content-center pb-10">
+        <div className="flex-[1] md:flex-[2] w-full ml-0 mt-0 md:ml-6 md:mt-6 place-content-center">
+          <div className="text-[10px] md:text-[12px] font-bold">From {story.n_articles} Sources</div>
+          <div className="text-[16px] md:text-[20px]">
             <div>{story.title}</div>
           </div>
         </div>
       </Link>
-      <div className="border-t border-myblue ml-4 mr-4 md:ml-10 md:mr-10"></div>
+      <div className="border-t border-slate-600 ml-4 mr-4 md:ml-10 md:mr-10"></div>
     </div>
   )
 }
@@ -39,12 +37,12 @@ function StoryListItem(props) {
 function LeadStoryListItem(props) {
   const story = props.story;
   return (
-    <div className="bg-mydarkRed p-3 rounded-[2vw]">
-      <div className="pb-2 text-[20px] md:text-[30px] ml-1 mt-1 md:ml-3 md:mt-3">Top Story</div>
+    <div className="bg-lightRed p-3 rounded-[2vw]">
+      <div className="pb-2 text-[24px] md:text-[32px] ml-1 mt-1 md:ml-3 md:mt-3 font-heading">Top Story</div>
       <Link to={`/story/${story.id}`} className="flex flex-col md:flex-row">
-        <div className="md:flex-[1] w-full">
-          <div className="text-[9px] md:text-[10px] text-myblue mt-2 md:mt-8">From {story.n_articles} Sources</div>
-          <div className="h-full place-content-center mb-2">
+        <div className="md:flex-[1] place-content-center">
+          <div className="text-[10px] md:text-[12px] font-bold">From {story.n_articles} Sources</div>
+          <div className="text-[18px] md:text-[24px]">
             <div>{story.title}</div>
           </div>
         </div>
@@ -52,7 +50,8 @@ function LeadStoryListItem(props) {
           <img
             className="md:flex-[1] w-full max-h-[400px] rounded-[2vw]"
             src={story.images[0].url}
-            alt={story.title}
+            // alt={story.title}
+            onerror="this.onerror=null; this.src='logo.png';"
           />
         ) : (
           <img
@@ -71,9 +70,6 @@ export default function StoryItems(props) {
     <main
       style={{
         backgroundSize: "cover",
-        backgroundColor: colors.grayBlue,
-        color: colors.white,
-        fontFamily: "Monaco, monospace",
         minHeight: "100vh",
       }}
     >
@@ -84,7 +80,7 @@ export default function StoryItems(props) {
         }}
         className="m-[10px] md:m-[40px]"
       >
-        <div className="text-[30px] md:text-[40px] mb-2 md:mb-6">Daily Digest</div>
+        <div className="font-heading text-[30px] md:text-[40px] mb-2 md:mb-6">Daily Digest</div>
         {stories.length > 0 ? (
           <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
             {stories.map((story, index) => (

@@ -74,25 +74,24 @@ export default function StoryPage() {
           key={index}
           style={{
             marginBottom: "15px",
-            backgroundColor: "rgba(0, 0, 0, 0.1)",
             padding: "10px",
             borderRadius: "10px",
           }}
+          className="border-2 border-lightRed"
         >
           <div style={{ display: "flex", alignItems: "center" }}>
             <a
               style={{
                 display: "flex",
                 alignItems: "center",
-                backgroundColor: colors.grayRed,
                 borderRadius: "20px",
                 width: "fit-content",
                 fontSize: "10px",
-                padding: "0px 20px 0px 20px",
+                padding: "4px 20px 4px 20px",
                 fontWeight: "bold",
-                color: colors.blue,
                 textDecoration: "none",
               }}
+              className="bg-lightBlue"
               href={article.provider_url}
               target="_blank"
               rel="noopener noreferrer"
@@ -111,13 +110,10 @@ export default function StoryPage() {
                 borderRadius: "20px",
                 width: "fit-content",
                 fontSize: "10px",
-                padding: "0px 20px 0px 20px",
-                fontWeight: "bold",
-                color: colors.red,
-                textDecoration: "none",
+                padding: "4px 20px 4px 20px",
                 margin: "10px",
-                outline: `1px solid ${colors.red}`,
               }}
+              className="border-2 border-gray text-gray font-bold"
               href={article.url}
               target="_blank"
               rel="noopener noreferrer"
@@ -128,14 +124,14 @@ export default function StoryPage() {
               style={{
                 margin: "5px",
                 fontSize: "12px",
-                color: colors.lightGray,
               }}
+              className="text-gray"
             >
               {article.date}
             </p>
           </div>
           <p style={{ margin: "5px", fontSize: "13px" }}>{article.title}</p>
-          <p style={{ margin: "5px", fontSize: "12px", color: colors.lightGray }}>
+          <p style={{ margin: "5px", fontSize: "12px" }} className="text-gray">
             {article.subtitle}
           </p>
         </li>
@@ -148,16 +144,17 @@ export default function StoryPage() {
   const coverage_section = story?.coverage ? (
     <div
       style={{
-        backgroundColor: colors.grayRed,
+        // backgroundColor: colors.grayRed,
         padding: "10px",
         margin: "10px",
         borderRadius: "10px",
       }}
+      className="bg-lightRed"
     >
-      <h4 style={{ margin: "0px" }}>Coverage</h4>
-      <ul style={{ backgroundColor: "rgba(0, 0, 0, 0.1)", padding: "20px" }}>
+      <p className="font-heading text-[28px] mb-1">Coverage</p>
+      <ul>
         {story.coverage.map((sentence, index) => (
-          <li key={index} style={{ marginBottom: "10px", fontSize: "13px" }}>
+          <li key={index} style={{ marginBottom: "10px", fontSize: "14px" }}>
             {sentence}
           </li>
         ))}
@@ -181,7 +178,7 @@ export default function StoryPage() {
         <div className="md:flex-[2] w-full">
           {story ? (
             <div>
-              <h1 className="mb-2 text-2xl font-bold">{story.title}</h1>
+              <h1 className="font-heading p-4 mb-2 text-2xl font-bold">{story.title}</h1>
               {story_items}
             </div>
           ) : (

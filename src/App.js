@@ -32,42 +32,18 @@ function App() {
 
   const about = (
     <div style={{ margin: "10px", padding: "10px", lineHeight: "1.6", backgroundColor: "rgba(255, 255, 255, 0.1)" }}>
-      <h2>About Digesticle</h2>
+      <h1>About Digesticle</h1>
       <p>
-        📰 <strong>Only the Most Important Stories, Condensed for You</strong>
+        At Digesticle, we believe staying informed should be simple, clear, and balanced. We're building the world’s first true news digestion engine — designed to help you quickly understand what’s happening in the world without the overwhelm.
       </p>
       <p>
-        <strong>AI-Powered Curation 🔥</strong> – We scan thousands of news sources to surface only the most critical
-        breaking stories, so you don’t have to.
+        Each day, countless stories unfold across trusted English-language news sources. Digesticle brings these stories together, distilling the core facts into concise, unbiased summaries that are easy to read and easy to trust.
       </p>
       <p>
-        <strong>Trusted Journalism 🏆</strong> – No sensationalism, no fluff—just credible news from the world’s most
-        respected outlets.
+        But we don’t stop at summaries. For every story, we highlight how it’s being covered from different angles, giving you a clear sense of consensus, contrast, and nuance. And if you want to dive deeper, you’ll find a curated set of links to explore full articles from respected publications.
       </p>
       <p>
-        <strong>Pre-Digested Summaries ✍️</strong> – No more sifting through long articles. Our AI extracts the key
-        facts, context, and takeaways in just a few bullet points.
-      </p>
-      <p>
-        🌍 <strong>The Full Picture, In Seconds</strong>
-      </p>
-      <p>
-        <strong>Multi-Source Perspectives 📡</strong> – See how different outlets report on the same event to get a
-        well-rounded view.
-      </p>
-      <p>
-        <strong>Bias Awareness 🎭</strong> – Instantly detect political leanings and credibility scores for every story.
-      </p>
-      <p>
-        <strong>Real-Time Updates ⏳</strong> – Stay ahead with AI-driven tracking of developing news, so you’re always
-        informed.
-      </p>
-      <p>
-        🔎 <strong>Fast. Intelligent. No Noise.</strong>
-      </p>
-      <p>
-        No clickbait. No distractions. No endless scrolling—just what matters. News that’s fast, transparent, and to the
-        point.
+        We’re in our early days — but our mission is clear: to help you cut through the noise, see the big picture, and stay informed with confidence.
       </p>
     </div>
   );
@@ -75,36 +51,31 @@ function App() {
   return (
     <Router>
       <div
-        className="App"
-        style={{
-          backgroundColor: colors.grayBlue,
-          color: colors.white,
-          fontFamily: "Monaco, monospace",
-          minHeight: "100vh",
-        }}
+        className="font-body text-mydarkRed bg-white min-h-screen"
       >
         <Helmet>
           <title>Digesticle</title>
         </Helmet>
         <header
-          className="App-header"
+          className="border-b-2"
           style={{
-            backgroundColor: colors.grayRed,
+            // backgroundColor: colors.grayRed,
             display: "flex",
             alignItems: "center",
             padding: "10px",
-            fontFamily: "Verdana",
+            // fontFamily: "Verdana",
           }}
         >
           <Link to="/">
-            <img src="name_logo.png" alt="Logo" style={{ height: "50px", marginRight: "10px" }} />
+            <img src="name_logo.png" alt="Logo" style={{ height: "50px", marginRight: "30px" }} />
           </Link>
           <Link
             style={{
               textDecoration: "none",
-              color: "#F0EAD6",
-              marginRight: "20px",
+              color: colors.black,
+              marginRight: "30px",
             }}
+            className="text-[20px]"
             to="/"
           >
             <div>Stories</div>
@@ -112,9 +83,10 @@ function App() {
           <Link
             style={{
               textDecoration: "none",
-              color: "#F0EAD6",
-              marginRight: "20px",
+              color: colors.black,
+              marginRight: "30px",
             }}
+            className="text-[20px]"
             to="/about"
           >
             <div>About</div>
