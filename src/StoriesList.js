@@ -50,7 +50,7 @@ function LeadStoryListItem(props) {
           <img
             className="md:flex-[1] w-full max-h-[400px] rounded-[2vw]"
             src={story.images[0].url}
-            // alt={story.title}
+            alt="story"
             onerror="this.onerror=null; this.src='logo.png';"
           />
         ) : (
