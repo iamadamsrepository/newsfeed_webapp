@@ -70,7 +70,7 @@ function App() {
           }}
         >
           <Link to="/">
-            <img src="name_logo.png" alt="Logo" style={{ height: "50px", marginRight: "30px" }} />
+            <img src="/name_logo.png" alt="Logo" style={{ height: "50px", marginRight: "30px" }} />
           </Link>
           <Link
             style={{
