@@ -4,33 +4,13 @@ import { Analytics } from "@vercel/analytics/react"
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { useState, useEffect } from "react";
 
-import StoriesList from "./StoriesList"
+import DigestPage from "./DigestPage";
 import StoryPage from "./StoryPage"
 import TimelinePage from "./TimelinePage"
-import { apiHost, colors } from "./config";
+import { colors } from "./config";
 
 function App() {
-  const [stories, setStories] = useState([]);
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     if (stories.length === 0) {
-  //       console.log("fetching data");
-  //       const url = apiHost + "/stories";
-  //       let response = await fetch(url);
-  //       let stories = await response.json();
-  //       stories.forEach((story) => {
-  //         story.n_articles = story.articles.length;
-  //       });
-  //       setStories(stories);
-  //       console.log(stories);
-  //     }
-  //   };
-  //   getData();
-  // }, [stories]);
-
   const about = (
     <div style={{ margin: "10px", padding: "10px", lineHeight: "1.6", backgroundColor: "rgba(255, 255, 255, 0.1)" }}>
       <h1>About Digesticle</h1>
@@ -63,11 +43,9 @@ function App() {
         <header
           className="border-b-2"
           style={{
-            // backgroundColor: colors.grayRed,
             display: "flex",
             alignItems: "center",
             padding: "10px",
-            // fontFamily: "Verdana",
           }}
         >
           <Link to="/">
@@ -97,9 +75,9 @@ function App() {
           </Link>
         </header>
         <Routes>
-          {/* <Route exact path="/" element={<StoriesList stories={stories}/>} /> */}
-          <Route excact path="/" element={about} />
+          <Route excact path="/" element={<DigestPage />} />
           <Route path="/about" element={about} />
+          <Route path="/digest/:id" element={<DigestPage />} />
           <Route path="/story/:id" element={<StoryPage />}></Route>
           <Route path="/timeline/:id" element={<TimelinePage />}></Route>
         </Routes>
