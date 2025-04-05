@@ -8,27 +8,28 @@ import { useState, useEffect } from "react";
 
 import StoriesList from "./StoriesList"
 import StoryPage from "./StoryPage"
+import TimelinePage from "./TimelinePage"
 import { apiHost, colors } from "./config";
 
 function App() {
   const [stories, setStories] = useState([]);
 
-  useEffect(() => {
-    const getData = async () => {
-      if (stories.length === 0) {
-        console.log("fetching data");
-        const url = apiHost + "/stories";
-        let response = await fetch(url);
-        let stories = await response.json();
-        stories.forEach((story) => {
-          story.n_articles = story.articles.length;
-        });
-        setStories(stories);
-        console.log(stories);
-      }
-    };
-    getData();
-  }, [stories]);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     if (stories.length === 0) {
+  //       console.log("fetching data");
+  //       const url = apiHost + "/stories";
+  //       let response = await fetch(url);
+  //       let stories = await response.json();
+  //       stories.forEach((story) => {
+  //         story.n_articles = story.articles.length;
+  //       });
+  //       setStories(stories);
+  //       console.log(stories);
+  //     }
+  //   };
+  //   getData();
+  // }, [stories]);
 
   const about = (
     <div style={{ margin: "10px", padding: "10px", lineHeight: "1.6", backgroundColor: "rgba(255, 255, 255, 0.1)" }}>
@@ -96,9 +97,11 @@ function App() {
           </Link>
         </header>
         <Routes>
-          <Route exact path="/" element={<StoriesList stories={stories}/>} />
+          {/* <Route exact path="/" element={<StoriesList stories={stories}/>} /> */}
+          <Route excact path="/" element={about} />
           <Route path="/about" element={about} />
           <Route path="/story/:id" element={<StoryPage />}></Route>
+          <Route path="/timeline/:id" element={<TimelinePage />}></Route>
         </Routes>
         <footer>
           <p>&copy; 2025 Digesticle</p>
