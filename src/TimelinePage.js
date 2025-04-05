@@ -7,9 +7,7 @@ import {
   TimelineItem,
   TimelineSeparator,
   TimelineConnector,
-  TimelineContent,
   TimelineDot,
-  TimelineOppositeContent,
 } from "@mui/lab";
 
 import { apiHost, colors } from "./config";
@@ -32,8 +30,8 @@ function TimelineSection(props) {
   return (
     <Timeline position="right">
       {events.map((event, index) => (
-        <TimelineItem key={index} className="outline outline-2 outline-gray rounded-md">
-          <div className="text-gray ml-[-30px] text-[10px] md:text-[12px]">
+        <TimelineItem key={index} className="">
+          <div className="text-gray ml-[-100px] mr-[5px] text-[10px] md:text-[12px] text-right">
             <div>{relativeDate(event.date)}</div>
             <div>{absoluteDate(event.date)}</div>
           </div>
@@ -43,9 +41,9 @@ function TimelineSection(props) {
             {index < events.length - 1 && <TimelineConnector sx={{ backgroundColor: colors.blue, color: "white" }}/>}
           </TimelineSeparator>
 
-          <div className="p-1 md:p-3 mt-[-10px] mb-8 ml-2 md:ml-6 outline outline-2 outline-gray rounded-md text-gray flex items-center w-2/3">
-            <div className="w-3/4 text-[11px]">{event.description}</div>
-            <a className="p-1 text-lightBlue rounded-md bg-gray w-1/4 text-[10px] font-bold text-center"
+          <div className="p-1 md:p-3 mt-[-10px] md:mt-[-20px] mb-4 ml-2 md:ml-4 rounded-md text-gray flex items-center w-3/5">
+            <div className="w-3/4 text-[12px] md:text-[16px] p-1 pr-2">{event.description}</div>
+            <a className="m-1 pt-1 pb-1 rounded-md text-gray w-1/4 text-[10px] font-bold text-center outline outline-2 outline-gray"
               href={`https://www.digesticle.com/story/${event.story_id}`} target="_blank" rel="noopener noreferrer"
             >
               Read More
@@ -57,37 +55,6 @@ function TimelineSection(props) {
   );
 }
 
-// function TimelineStories(props) {
-//   const stories = props.stories;
-//   console.log(stories);
-//   return stories ? (
-//     <ul
-//       style={{
-//         listStyleType: "none",
-//         padding: 0,
-//         display: "grid",
-//         gridTemplateColumns: window.innerWidth > 800 ? "1fr 1fr" : "1fr",
-//         gap: "10px",
-//       }}
-//     >
-//       {stories.map((story, index) => (
-//         <li
-//           key={index}
-//           style={{
-//             marginBottom: "15px",
-//             padding: "10px",
-//             borderRadius: "10px",
-//           }}
-//           className="border-2 border-lightRed"
-//         >
-//           asdf
-//         </li>
-//       ))}
-//     </ul>
-//   ) : (
-//     <div>No articles available</div>
-//   );
-// }
 
 export default function TimelinePage() {
   const { id } = useParams();
@@ -130,6 +97,7 @@ export default function TimelinePage() {
       <div className="p-[3px] m-[5px] md:m-[40px] flex flex-col md:flex-row gap-4">
         <div className="md:flex-[2] w-full">
           <div className="p-4">
+            <div className="font-heading text-[30px] md:text-[40px]">Timeline</div>
             <h1 className="font-bold">{timeline.subject}</h1>
             <h1 className="font-heading mb-2 text-2xl font-bold">{timeline.headline}</h1>
           </div>
